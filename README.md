@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ultimate Self-Learning Network Security System</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-
 <h1>Ultimate Self-Learning Network Security System</h1>
 
 <p>
