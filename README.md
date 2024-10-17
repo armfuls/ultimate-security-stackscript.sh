@@ -1,396 +1,196 @@
-Ultimate Self-Learning Network Security System
-This repository contains all the necessary scripts and configurations to implement the Ultimate Self-Learning Network Security System. This system is designed to monitor network traffic, detect anomalies using AI-driven techniques, automatically handle incidents via SOAR integration, and ensure data integrity using blockchain technology.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ultimate Self-Learning Network Security System</title>
+    <meta charset="UTF-8">
+</head>
+<body>
 
-Contents
-Overview
-Repository Structure
-Installation
-Configuration
-Usage
-Contributing
-License
-Overview
-The Ultimate Self-Learning Network Security System combines multiple advanced technologies to provide an adaptive and scalable security solution. The system:
+<h1>Ultimate Self-Learning Network Security System</h1>
 
-Monitors network traffic using Zeek.
-Aggregates and normalizes data with Logstash and Elasticsearch.
-Utilizes Machine Learning for anomaly detection.
-Integrates with a SOAR platform for automatic incident response.
-Enhances data integrity with Blockchain technology.
-Is prepared for future technologies such as Quantum Computing.
-Is scalable through Containerization and Kubernetes.
-Repository Structure
-plaintext
-Copy code
-ultimate-security-system/
-├── README.md
-├── LICENSE
-├── ultimate-security-stackscript.sh
-├── config/
-│   └── ultimate-security-config.yaml
-├── scripts/
-│   ├── train_deep_model.py
-│   ├── realtime_anomaly_detection.py
-│   ├── create_soar_incident.py
-│   ├── threat_intel_integration.py
-│   └── blockchain_integration.py
-├── services/
-│   └── realtime-anomaly-detection.service
-├── logstash/
-│   └── network.conf
-└── kubernetes/
-    └── deployment.yaml
-Installation
-Requirements
-Operating System: Ubuntu 20.04 or later.
-Access: Root or sudo access to the system.
-Software:
-Docker and Docker Compose
-Kubernetes (Minikube for local development)
-Steps
-Clone the repository
+<p>
+    The Ultimate Self-Learning Network Security System is a comprehensive, integrated solution designed to monitor, analyze, and protect your network infrastructure. Built on Kali Linux, this system leverages advanced tools and technologies to provide real-time anomaly detection, automated incident response, and proactive threat intelligence integration.
+</p>
 
-bash
-Copy code
-git clone https://github.com/your-username/ultimate-security-system.git
-cd ultimate-security-system
-Make the StackScript executable
+<h2>Table of Contents</h2>
+<ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#key-features">Key Features</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#components">Components</a></li>
+    <li><a href="#future-updates">Future Updates</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
 
-bash
-Copy code
-chmod +x ultimate-security-stackscript.sh
-Run the StackScript
+<h2 id="introduction">Introduction</h2>
 
-bash
-Copy code
-sudo ./ultimate-security-stackscript.sh
-This script will install and configure all the necessary components.
+<p>
+    As cybersecurity threats continue to evolve, organizations require robust and adaptive security solutions. The Ultimate Self-Learning Network Security System addresses these challenges by combining network monitoring, machine learning, threat intelligence, and blockchain technology to create a self-learning, scalable, and secure environment.
+</p>
 
-Configuration
-The configuration file is located at config/ultimate-security-config.yaml. Adjust this file to change the system's behavior.
+<h2 id="key-features">Key Features</h2>
 
-Example Configuration:
+<ul>
+    <li><strong>Network Traffic Monitoring:</strong> Uses Zeek for comprehensive network analysis.</li>
+    <li><strong>Data Aggregation and Normalization:</strong> Employs Logstash and Elasticsearch for efficient data handling.</li>
+    <li><strong>Machine Learning Models:</strong> Trains and applies models using Python, TensorFlow, and Keras for anomaly detection.</li>
+    <li><strong>Real-Time Anomaly Detection:</strong> Identifies and responds to threats as they occur.</li>
+    <li><strong>Automated Incident Response:</strong> Integrates with TheHive SOAR platform for streamlined incident management.</li>
+    <li><strong>Threat Intelligence Integration:</strong> Incorporates feeds from OpenCTI and MISP for proactive defense.</li>
+    <li><strong>Data Integrity Assurance:</strong> Utilizes Hyperledger Fabric blockchain technology to ensure data immutability.</li>
+    <li><strong>Scalability:</strong> Supports containerization and Kubernetes for scalable deployments.</li>
+    <li><strong>Interactive Dashboard:</strong> Provides real-time monitoring through Kibana.</li>
+</ul>
 
-yaml
-Copy code
-learning_phase_duration: 14  # Number of days for the learning phase
-anomaly_threshold: 0.01      # Tolerance for anomalies (1% anomalies allowed)
-model_retrain_interval: 3    # The model is retrained every 3 days
-recording_mode: false        # Recording mode is off by default
-soar_integration: true       # SOAR integration is enabled
-threat_intel_feeds:
-  - feed_name: "OpenCTI"
-    api_key: "YOUR_API_KEY"
-Usage
-Monitoring
-Kibana: Access via http://localhost:5601 for data visualization and monitoring.
-Incident Management
-TheHive: Access via http://localhost:9000 to manage incidents.
-Anomaly Detection
-Anomalies are logged in /var/log/ultimate_security/anomalies.log.
-Managing Services
-Start the anomaly detection service:
+<h2 id="prerequisites">Prerequisites</h2>
 
-bash
-Copy code
-sudo systemctl start realtime-anomaly-detection.service
-Check service status:
+<ul>
+    <li>Kali Linux installed on a machine with root access.</li>
+    <li>Minimum 8 GB RAM and 50 GB free disk space.</li>
+    <li>Active network interface (default is <code>eth0</code>).</li>
+    <li>Internet connectivity for downloading packages and images.</li>
+    <li>API keys for OpenCTI and TheHive (if integrating threat intelligence and SOAR).</li>
+    <li>Email SMTP server details for alerting.</li>
+</ul>
 
-bash
-Copy code
-sudo systemctl status realtime-anomaly-detection.service
-Contributing
-Contributions are welcome! Feel free to open an issue or submit a pull request for improvements or bug fixes.
+<h2 id="installation">Installation</h2>
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+<h3>Step 1: Clone the Repository</h3>
+<pre><code>git clone https://your-repo-url.git
+cd your-repo
+</code></pre>
 
-Note: Ensure you test all components in a controlled environment before using them in production. Customize the system based on the specific needs and environment of your organization.
+<h3>Step 2: Update the Deployment Script</h3>
+<p>Modify the deployment script to include your specific configurations:</p>
+<ul>
+    <li>Replace <code>"YOUR_API_KEY"</code> with your actual OpenCTI API key.</li>
+    <li>Replace <code>"YOUR_THEHIVE_API_KEY"</code> with your TheHive API key.</li>
+    <li>Update email settings in <code>realtime_anomaly_detection.py</code>.</li>
+    <li>Adjust any paths or network configurations as necessary.</li>
+</ul>
 
-Files and Directories
-ultimate-security-stackscript.sh
-The main script that automates installation and configuration.
+<h3>Step 3: Make the Script Executable</h3>
+<pre><code>chmod +x deploy_ultimate_security_system_kali.sh
+</code></pre>
 
-<details> <summary>Click to view the script content</summary>
-bash
-Copy code
-#!/bin/bash
+<h3>Step 4: Run the Deployment Script</h3>
+<pre><code>sudo ./deploy_ultimate_security_system_kali.sh
+</code></pre>
 
-# StackScript: Ultimate Self-Learning Network Security System
+<p>The script will install and configure all necessary components, including Zeek, Suricata, ELK Stack, TheHive, MISP, Hyperledger Fabric, and the machine learning scripts.</p>
 
-# ---------------------------------------
-# 1. Installation of Advanced Packages
-# ---------------------------------------
-apt-get update
+<h2 id="usage">Usage</h2>
 
-# Install required packages
-apt-get install -y python3 python3-pip zeek suricata docker.io docker-compose
+<h3>Accessing the Interactive Dashboard</h3>
+<p>After installation, you can access the Kibana dashboard to monitor network activity:</p>
+<pre><code>http://&lt;kali_linux_ip_address&gt;:5601
+</code></pre>
+<p>Replace <code>&lt;kali_linux_ip_address&gt;</code> with the IP address of your Kali Linux machine.</p>
 
-# Install Python packages for Deep Learning and Data Science
-pip3 install tensorflow keras scikit-learn pandas numpy joblib
+<h3>Creating Index Patterns in Kibana</h3>
+<ol>
+    <li>Navigate to <strong>Management &gt; Kibana &gt; Index Patterns</strong>.</li>
+    <li>Click on <strong>Create index pattern</strong>.</li>
+    <li>Enter <code>network-logs-*</code> as the index pattern.</li>
+    <li>Select <code>@timestamp</code> as the time filter field.</li>
+    <li>Click <strong>Create index pattern</strong>.</li>
+</ol>
 
-# Install and configure Elasticsearch, Logstash, Kibana (ELK Stack)
-docker pull docker.elastic.co/elasticsearch/elasticsearch:8.0.0
-docker pull docker.elastic.co/logstash/logstash:8.0.0
-docker pull docker.elastic.co/kibana/kibana:8.0.0
+<h3>Monitoring Network Traffic</h3>
+<p>Use the <strong>Discover</strong> tab in Kibana to explore network logs collected by Zeek and Suricata.</p>
 
-# Install SOAR platform (e.g., TheHive)
-docker pull thehiveproject/thehive:latest
+<h3>Commands</h3>
+<ul>
+    <li><strong>Check Zeek Status:</strong>
+        <pre><code>sudo zeekctl status
+</code></pre>
+    </li>
+    <li><strong>Start Zeek:</strong>
+        <pre><code>sudo zeekctl deploy
+</code></pre>
+    </li>
+    <li><strong>Check Suricata Status:</strong>
+        <pre><code>sudo systemctl status suricata
+</code></pre>
+    </li>
+    <li><strong>Start Suricata:</strong>
+        <pre><code>sudo suricata -c /etc/suricata/suricata.yaml -i eth0 -D
+</code></pre>
+    </li>
+    <li><strong>View Anomalies Log:</strong>
+        <pre><code>cat /var/log/ultimate_security/anomalies.log
+</code></pre>
+    </li>
+    <li><strong>Monitor Docker Containers:</strong>
+        <pre><code>sudo docker ps
+</code></pre>
+    </li>
+</ul>
 
-# Install Blockchain framework (e.g., Hyperledger Fabric)
-# Note: Requires complex installation; assuming it's already installed.
+<h3>Accessing TheHive</h3>
+<p>TheHive can be accessed via:</p>
+<pre><code>http://&lt;kali_linux_ip_address&gt;:9000
+</code></pre>
+<p>Default credentials:</p>
+<ul>
+    <li>Username: <code>admin@thehive.local</code></li>
+    <li>Password: <code>secret</code> (Change this immediately after first login)</li>
+</ul>
 
-# The rest of the script...
-</details>
-config/ultimate-security-config.yaml
-Configuration file with system settings.
+<h2 id="components">Components</h2>
 
-<details> <summary>Click to view the configuration file content</summary>
-yaml
-Copy code
-learning_phase_duration: 14  # Number of days for the learning phase
-anomaly_threshold: 0.01      # Tolerance for anomalies (1% anomalies allowed)
-model_retrain_interval: 3    # The model is retrained every 3 days
-recording_mode: false        # Recording mode is off by default
-soar_integration: true       # SOAR integration is enabled
-threat_intel_feeds:
-  - feed_name: "OpenCTI"
-    api_key: "YOUR_API_KEY"
-</details>
-scripts/train_deep_model.py
-Script for training the deep learning model using LSTM Autoencoders.
+<h3>Zeek</h3>
+<p>An open-source network security monitor that analyzes network traffic and generates logs for analysis.</p>
 
-<details> <summary>Click to view the script content</summary>
-python
-Copy code
-import pandas as pd
-import numpy as np
-import os
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, RepeatVector, TimeDistributed
-from sklearn.preprocessing import MinMaxScaler
-import joblib
+<h3>Suricata</h3>
+<p>An intrusion detection and prevention system capable of real-time traffic analysis and threat detection.</p>
 
-# Load and preprocess data
-def load_and_preprocess_data(directory='/opt/zeek/logs/current'):
-    data = []
-    for file in os.listdir(directory):
-        if file.endswith('.log'):
-            df = pd.read_csv(os.path.join(directory, file), delimiter='\t')
-            # Data normalization and selection of relevant features
-            # Add your data preprocessing code here
-            data.append(df)
-    combined_data = pd.concat(data)
-    return combined_data
+<h3>ELK Stack</h3>
+<ul>
+    <li><strong>Elasticsearch:</strong> Stores and indexes log data.</li>
+    <li><strong>Logstash:</strong> Processes and transports log data.</li>
+    <li><strong>Kibana:</strong> Visualizes data and provides the interactive dashboard.</li>
+</ul>
 
-# Train the model
-def train_deep_learning_model(data):
-    scaler = MinMaxScaler()
-    data_scaled = scaler.fit_transform(data)
-    joblib.dump(scaler, '/var/log/ultimate_security/scaler.pkl')
+<h3>TheHive</h3>
+<p>A scalable, open-source Security Incident Response Platform (SIRP) designed to assist SOCs in managing incidents.</p>
 
-    # Reshape data for LSTM [samples, timesteps, features]
-    timesteps = 10
-    X = []
-    for i in range(len(data_scaled) - timesteps):
-        X.append(data_scaled[i:(i + timesteps)])
-    X = np.array(X)
+<h3>MISP</h3>
+<p>The Malware Information Sharing Platform allows sharing of threat intelligence with other organizations.</p>
 
-    # Build the LSTM Autoencoder model
-    model = Sequential([
-        LSTM(128, activation='relu', input_shape=(timesteps, X.shape[2]), return_sequences=True),
-        LSTM(64, activation='relu', return_sequences=False),
-        RepeatVector(timesteps),
-        LSTM(64, activation='relu', return_sequences=True),
-        LSTM(128, activation='relu', return_sequences=True),
-        TimeDistributed(Dense(X.shape[2]))
-    ])
+<h3>Hyperledger Fabric</h3>
+<p>A blockchain framework that ensures data integrity and immutability for logs and incidents.</p>
 
-    model.compile(optimizer='adam', loss='mse')
-    model.fit(X, X, epochs=10, batch_size=32, validation_split=0.1)
+<h3>Machine Learning Scripts</h3>
+<p>Python scripts that train models and perform real-time anomaly detection using TensorFlow and Keras.</p>
 
-    # Save the model
-    model.save('/var/log/ultimate_security/deep_trained_model.h5')
+<h2 id="future-updates">Future Updates</h2>
 
-# Load data and train the model
-network_data = load_and_preprocess_data()
-train_deep_learning_model(network_data)
-</details>
-scripts/realtime_anomaly_detection.py
-Script for real-time anomaly detection.
+<p>Potential enhancements for the system include:</p>
 
-<details> <summary>Click to view the script content</summary>
-python
-Copy code
-import pandas as pd
-import numpy as np
-import os
-from tensorflow.keras.models import load_model
-from sklearn.preprocessing import MinMaxScaler
-import joblib
-import time
+<ul>
+    <li><strong>Quantum Computing Integration:</strong> Preparing algorithms and encryption methods to be quantum-resistant.</li>
+    <li><strong>Advanced Threat Intelligence Feeds:</strong> Incorporating additional feeds for more comprehensive threat coverage.</li>
+    <li><strong>Enhanced Automation:</strong> Implementing more sophisticated automated responses to detected threats.</li>
+    <li><strong>User Interface Improvements:</strong> Developing custom dashboards and reports tailored to specific organizational needs.</li>
+    <li><strong>Containerization Enhancements:</strong> Expanding Kubernetes deployments for better scalability and resilience.</li>
+</ul>
 
-# Load the trained model and scaler
-model = load_model('/var/log/ultimate_security/deep_trained_model.h5')
-scaler = joblib.load('/var/log/ultimate_security/scaler.pkl')
+<h2 id="contributing">Contributing</h2>
 
-# Function to process real-time data
-def process_realtime_data():
-    # Add code here to load and preprocess real-time data
-    # For example, reading the most recent Zeek log
-    df = pd.read_csv('/opt/zeek/logs/current/realtime.log', delimiter='\t')
-    # Data preprocessing
-    data_scaled = scaler.transform(df)
-    X = np.array([data_scaled[-10:]])  # Take the last 10 timesteps
-    # Prediction
-    reconstructed = model.predict(X)
-    mse = np.mean(np.power(X - reconstructed, 2), axis=(1,2))
-    threshold = np.percentile(mse, 99)  # Determine threshold
-    if mse > threshold:
-        print("Anomaly detected!")
-        with open('/var/log/ultimate_security/anomalies.log', 'a') as f:
-            f.write(str(df.iloc[-1].to_dict()) + '\n')
-        # Switch to recording mode
-        os.system("sed -i 's/recording_mode: false/recording_mode: true/' /etc/ultimate-security-config.yaml")
-        # Create a SOAR incident
-        os.system("python3 /usr/local/bin/create_soar_incident.py")
-        # Add log to blockchain
-        # from blockchain_integration import add_log_to_blockchain
-        # add_log_to_blockchain(str(df.iloc[-1].to_dict()))
+<p>Contributions are welcome! Please submit a pull request or open an issue to discuss proposed changes or enhancements.</p>
 
-# Continuously process data
-while True:
-    process_realtime_data()
-    time.sleep(5)  # Adjust the interval as needed
-</details>
-scripts/create_soar_incident.py
-Script to create incidents in the SOAR platform.
+<h2 id="license">License</h2>
 
-<details> <summary>Click to view the script content</summary>
-python
-Copy code
-import requests
-import json
+<p>This project is licensed under the MIT License. See the <code>LICENSE</code> file for details.</p>
 
-def create_incident(description):
-    url = 'http://localhost:9000/api/case'
-    headers = {'Content-Type': 'application/json'}
-    data = {
-        "title": "Automatically Generated Incident",
-        "description": description,
-        "severity": 2
-    }
-    response = requests.post(url, headers=headers, data=json.dumps(data))
-    if response.status_code == 201:
-        print("Incident successfully created in TheHive.")
-    else:
-        print("Error creating incident.")
+<h2 id="contact">Contact</h2>
 
-# Read the last anomaly
-with open('/var/log/ultimate_security/anomalies.log', 'r') as f:
-    last_line = f.readlines()[-1]
-    create_incident(last_line)
-</details>
-scripts/threat_intel_integration.py
-Script for integrating Threat Intelligence Feeds.
+<p>For questions or support, please contact the development team at <a href="mailto:support@ultimate-security.com">support@ultimate-security.com</a>.</p>
 
-<details> <summary>Click to view the script content</summary>
-python
-Copy code
-import requests
-import yaml
-
-# Load configuration
-with open('/etc/ultimate-security-config.yaml', 'r') as file:
-    config = yaml.safe_load(file)
-
-for feed in config['threat_intel_feeds']:
-    if feed['feed_name'] == 'OpenCTI':
-        api_key = feed['api_key']
-        # Connect to the OpenCTI API and retrieve indicators
-        # Add code to integrate these indicators with your SIEM or IDS
-</details>
-scripts/blockchain_integration.py
-Placeholder script for blockchain integration.
-
-<details> <summary>Click to view the script content</summary>
-python
-Copy code
-def add_log_to_blockchain(log_entry):
-    # Add code to connect to the blockchain and add the log
-    pass
-</details>
-services/realtime-anomaly-detection.service
-Systemd service file to run the anomaly detection script.
-
-<details> <summary>Click to view the service file content</summary>
-ini
-Copy code
-[Unit]
-Description=Realtime Anomaly Detection Service
-
-[Service]
-ExecStart=/usr/bin/python3 /usr/local/bin/realtime_anomaly_detection.py
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-</details>
-logstash/network.conf
-Logstash configuration file to process Zeek logs.
-
-<details> <summary>Click to view the configuration file content</summary>
-conf
-Copy code
-input {
-  file {
-    path => "/opt/zeek/logs/current/*.log"
-    start_position => "beginning"
-  }
-}
-
-filter {
-  # Normalize Zeek logs
-  # Add your filter configurations here
-}
-
-output {
-  elasticsearch {
-    hosts => ["localhost:9200"]
-    index => "network-logs-%{+YYYY.MM.dd}"
-  }
-}
-</details>
-kubernetes/deployment.yaml
-Kubernetes deployment configuration.
-
-<details> <summary>Click to view the deployment file content</summary>
-yaml
-Copy code
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ultimate-security-system
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: ultimate-security
-  template:
-    metadata:
-      labels:
-        app: ultimate-security
-    spec:
-      containers:
-      - name: anomaly-detection
-        image: your-docker-repo/anomaly-detection:latest
-        ports:
-        - containerPort: 80
-</details>
-Replace your-username and your-docker-repo with your actual GitHub username and Docker repository name.
-
-Contributing
-Contributions are highly appreciated! Please open an issue or submit a pull request for enhancements or bug fixes.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details
+</body>
+</html>
